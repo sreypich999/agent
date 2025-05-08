@@ -1,0 +1,23 @@
+minio:
+  endpoint: "${MINIO_ENDPOINT}"
+  bucket_name: "${MINIO_BUCKET_NAME}"
+  secure: false
+  scan_interval: 30
+
+chroma:
+  collection_name: "document-knowledge"
+  persist_directory: "./data/chroma"
+  similarity_threshold: 0.75
+
+processing:
+  chunk_size: 1500
+  chunk_overlap: 200
+  supported_extensions: ["pdf", "docx", "csv", "txt"]
+
+response:
+  max_history: 50
+  strict_mode: true
+  forbidden_phrases:
+    - "generally"
+    - "common knowledge"
+    - "typically"
